@@ -91,6 +91,27 @@ SELECT MIN(age) FROM Workers
 con.commit()
 print(c.fetchall())
 
+c.execute("""
+SELECT SUM(age) FROM Workers
+""")
+con.commit()
+print(c.fetchall())
 
+c.execute("""
+ALTER TABLE Workers
+ADD datetime timestamp default NOW
+""")
+con.commit()
+
+c.execute("""
+ALTER TABLE Workers
+ADD date timestamp default CURDATE
+""")
+con.commit()
+
+c.execute("""
+
+""")
+con.commit()
 c.close()
 con.close()
