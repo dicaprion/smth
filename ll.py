@@ -99,19 +99,42 @@ print(c.fetchall())
 
 c.execute("""
 ALTER TABLE Workers
-ADD datetime timestamp default NOW
+ADD dt datetime default '2017-03-24 08:48:54'
 """)
 con.commit()
+print(c.fetchall())
 
 c.execute("""
 ALTER TABLE Workers
-ADD date timestamp default CURDATE
+ADD dt2 date default '2017-03-24'
+""")
+con.commit()
+print(c.fetchall())
+
+c.execute("""
+SELECT * FROM Workers
+""")
+
+c.execute("""
+SELECT strftime('%Y', dt), strftime('%m', dt), strftime('%d',dt) FROM Workers
+""")
+con.commit()
+print(c.fetchall())
+
+c.execute("""
+UPDATE Workers SET dt='2017-03-24 08:48:32' WHERE id=3
+""")
+con.commit()
+c.execute("""
+SELECT strftime('%M', dt), strftime('%S', dt) FROM Workers
 """)
 con.commit()
 
 c.execute("""
-
+SELECT * FROM Workers WHERE strftime('%M',dt) > strftime('%S',dt)
 """)
 con.commit()
+print(c.fetchall())
+
 c.close()
 con.close()
