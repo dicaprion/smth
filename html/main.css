@@ -1,0 +1,25 @@
+
+body{
+	background:#F5DEB3;
+	font-family: century gothic;
+}
+
+button {
+	background:#DEB887;
+	padding: 1px 5px;
+	font-size: 20px;
+	font-family: century gothic;
+}
+
+footer {
+	background:#DEB887;
+}
+
+
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
