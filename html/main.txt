@@ -1,4 +1,0 @@
-img.header {
-	width:100%;
-	border: 2px solid #607202;
-}
